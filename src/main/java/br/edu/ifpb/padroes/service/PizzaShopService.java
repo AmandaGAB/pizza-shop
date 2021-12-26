@@ -3,9 +3,11 @@ package br.edu.ifpb.padroes.service;
 import br.edu.ifpb.padroes.api.damenos.DamenosPizza;
 import br.edu.ifpb.padroes.api.damenos.DamenosServiceImpl;
 import br.edu.ifpb.padroes.api.damenos.proxy.DamenosService;
+import br.edu.ifpb.padroes.api.damenos.proxy.DamenosServiceProxy;
 import br.edu.ifpb.padroes.api.pizzahot.PizzaHotPizza;
 import br.edu.ifpb.padroes.api.pizzahot.PizzaHotServiceImpl;
 import br.edu.ifpb.padroes.api.pizzahot.proxy.PizzaHotService;
+import br.edu.ifpb.padroes.api.pizzahot.proxy.PizzaHotServiceProxy;
 import br.edu.ifpb.padroes.domain.Pizza;
 import br.edu.ifpb.padroes.domain.adapter.DamenosAdapter;
 import br.edu.ifpb.padroes.domain.adapter.PizzahotAdapter;
@@ -21,8 +23,13 @@ public class PizzaShopService {
 
     public PizzaShopService() {
         // TODO - alterar criação de instância para chamar para o Proxy de Cache
-        damenosService = new DamenosServiceImpl();
-        pizzaHotService = new PizzaHotServiceImpl();
+        
+        damenosService = new DamenosServiceProxy();
+        pizzaHotService = new PizzaHotServiceProxy();
+
+
+        /* damenosService = new DamenosServiceImpl();
+        pizzaHotService = new PizzaHotServiceImpl(); */
     }
 
     // TODO - implementar decorator para não precisar atributos da pizza como parâmetros no método
