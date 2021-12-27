@@ -1,11 +1,11 @@
 package br.edu.ifpb.padroes.service;
 
 import br.edu.ifpb.padroes.api.damenos.DamenosPizza;
-import br.edu.ifpb.padroes.api.damenos.DamenosServiceImpl;
+
 import br.edu.ifpb.padroes.api.damenos.proxy.DamenosService;
 import br.edu.ifpb.padroes.api.damenos.proxy.DamenosServiceProxy;
 import br.edu.ifpb.padroes.api.pizzahot.PizzaHotPizza;
-import br.edu.ifpb.padroes.api.pizzahot.PizzaHotServiceImpl;
+
 import br.edu.ifpb.padroes.api.pizzahot.proxy.PizzaHotService;
 import br.edu.ifpb.padroes.api.pizzahot.proxy.PizzaHotServiceProxy;
 import br.edu.ifpb.padroes.domain.Pizza;
@@ -33,11 +33,11 @@ public class PizzaShopService {
     }
 
     // TODO - implementar decorator para não precisar atributos da pizza como parâmetros no método
-    public void orderPizza(Pizza pizza, boolean discountCoupon, boolean extraCheese, boolean panPizza, boolean stuffedCrust) {
+    public void orderPizza(Pizza pizza) { //, boolean discountCoupon, boolean extraCheese, boolean panPizza, boolean stuffedCrust
 
         Float totalPrice = pizza.getPrice();
         String name = pizza.getName();
-
+/* 
         // cupom de desconto
         if (discountCoupon) {
             totalPrice *= 0.25f; // 25% discount
@@ -59,7 +59,7 @@ public class PizzaShopService {
         if (stuffedCrust) {
             totalPrice *= 1.20f; // 20% increase
             name += " (stuffed crust)";
-        }
+        } */
 
         System.out.println(String.format("New order for = %s", name));
         System.out.println(String.format("Total price = %f", totalPrice));
